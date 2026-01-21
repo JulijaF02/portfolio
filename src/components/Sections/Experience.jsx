@@ -40,7 +40,7 @@ const Experience = () => {
                 ))}
             </ol>
             <div className="mt-12 mb-16">
-                <a href="https://www.dropbox.com/scl/fi/gdssgmc5kr3qcrglvf85g/Julija_Filipovic_CV.pdf?rlkey=s0bvijxyxpzr3dn6dii2oopce&st=z4i749vj&dl=0" target="_blank" rel="noopener noreferrer" className="inline-block py-4 px-10 border-2 border-teal-400/40 text-teal-300 font-bold uppercase text-xs tracking-[0.25em] hover:bg-teal-400 hover:text-slate-950 transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(45,212,191,0.15)]">
+                <a href="https://www.dropbox.com/scl/fi/hpfb2r9lcx74ak7iz3zk1/Julija_FilipovicCV.pdf?rlkey=vn2amjmqpbrzz6sfme8arqsbn&st=aqxdz118&dl=0" target="_blank" rel="noopener noreferrer" className="inline-block py-4 px-10 border-2 border-teal-400/40 text-teal-300 font-bold uppercase text-xs tracking-[0.25em] hover:bg-teal-400 hover:text-slate-950 transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(45,212,191,0.15)]">
                     Load Full Resume
                 </a>
             </div>
