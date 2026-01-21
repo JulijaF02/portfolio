@@ -2,7 +2,7 @@ import React from 'react';
 
 const IdentityBox = ({ isGameActive, children }) => {
     return (
-        <div className="relative mx-auto lg:mx-0 w-full max-w-sm sm:max-w-md border-2 border-teal-500/20 bg-slate-900/40 p-5 md:p-8 rounded-lg shadow-[0_0_40px_rgba(45,212,191,0.05)] overflow-hidden">
+        <div className="relative mx-auto lg:mx-0 w-full max-w-sm sm:max-w-md border-2 border-teal-500/20 bg-slate-900/40 p-5 md:p-8 rounded-lg shadow-[0_0_40px_rgba(45,212,191,0.05)] lg:max-h-[94vh] lg:overflow-y-auto custom-scrollbar">
             {/* Corner Brackets */}
             <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-teal-400/40"></div>
             <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-teal-400/40"></div>
@@ -45,7 +45,7 @@ const IdentityBox = ({ isGameActive, children }) => {
                     </h2>
                 </div>
 
-                <div className="mt-8 space-y-6 font-mono">
+                <div className="mt-6 space-y-4 font-mono">
                     {[
                         { label: "Unity & Engine", skills: ["Unity 2D/3D", "C#", "UI Systems", "Gameplay Flow"] },
                         { label: "Motion & Design", skills: ["After Effects", "Photoshop", "DaVinci Resolve", "2D/3D Animation"] },

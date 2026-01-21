@@ -93,7 +93,7 @@ export default function Home() {
       <div className="mx-auto max-w-screen-2xl px-6 font-sans md:px-12 lg:px-24">
         <div className="lg:flex lg:justify-between lg:gap-12">
 
-          <header className={`pt-12 lg:pt-32 lg:fixed lg:top-0 lg:flex lg:h-screen lg:w-[42%] lg:flex-col lg:justify-start lg:pr-20 transition-all duration-700 ${isGameActive ? 'blur-2xl scale-90 opacity-0 pointer-events-none' : 'blur-0 scale-100 opacity-100'}`}>
+          <header className={`pt-12 lg:pt-16 lg:fixed lg:top-0 lg:flex lg:h-screen lg:w-[42%] lg:flex-col lg:justify-center lg:pr-20 transition-all duration-700 ${isGameActive ? 'blur-2xl scale-90 opacity-0 pointer-events-none' : 'blur-0 scale-100 opacity-100'}`}>
             <IdentityBox isGameActive={isGameActive}>
               <Navigation activeSection={activeSection} />
             </IdentityBox>
