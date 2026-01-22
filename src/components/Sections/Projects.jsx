@@ -1,13 +1,20 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
+import VideoModal from '../UI/VideoModal';
 
 const Projects = () => {
+    const [activeVideo, setActiveVideo] = useState(null);
+
     const projects = [
         {
             id: "findit_01",
             title: "Find it",
             desc: "A surveillance horror experience where players monitor security cameras to detect subtle environmental anomalies. Features a randomized event system with 4 distinct anomaly types (Move, Disappear, Color, Swap) and a high-stakes reporting mechanic.",
             tech: ["Unity", "C#", "Randomization Engine", "UI Systems"],
-            href: "https://github.com/JulijaF02/FindIt"
+            href: "https://github.com/JulijaF02/FindIt",
+            demoVideo: "/FindIt_demo.mp4",
+            thumbnail: "/FindIt_thumbnail.jpg"
         },
         {
             id: "food_order_02",
@@ -36,7 +43,30 @@ const Projects = () => {
                     <div key={proj.id} className="border border-teal-500/20 bg-teal-500/5 p-6 rounded-lg relative overflow-hidden group/box hover:border-teal-500/40 transition-all">
                         <div className="absolute top-0 right-0 p-2 text-[8px] text-teal-500/30 uppercase font-black">id: {proj.id}</div>
                         <div className="relative z-10 sm:flex gap-6">
-                            <div className="font-sans">
+                            {/* Project Image/Thumbnail (Optional) */}
+                            {proj.thumbnail && (
+                                <div className="sm:w-1/3 mb-4 sm:mb-0 relative group/thumb cursor-pointer" onClick={() => setActiveVideo(proj.demoVideo)}>
+                                    <div className="aspect-video rounded border border-teal-500/20 overflow-hidden relative">
+                                        <img src={proj.thumbnail} alt={proj.title} className="w-full h-full object-cover grayscale group-hover/thumb:grayscale-0 transition-all duration-500 scale-105 group-hover/thumb:scale-100" />
+                                        <div className="absolute inset-0 bg-teal-500/10 group-hover/thumb:bg-transparent transition-colors"></div>
+
+                                        {/* Play Button Overlay */}
+                                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/thumb:opacity-100 transition-opacity">
+                                            <div className="w-12 h-12 rounded-full bg-teal-500 flex items-center justify-center shadow-[0_0_20px_rgba(45,212,191,0.5)]">
+                                                <svg className="w-6 h-6 text-slate-950 fill-current ml-1" viewBox="0 0 24 24">
+                                                    <path d="M8 5v14l11-7z" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="mt-2 flex items-center gap-2 text-[10px] text-teal-500/60 font-bold uppercase tracking-widest">
+                                        <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                                        Live Demo Available
+                                    </div>
+                                </div>
+                            )}
+
+                            <div className={proj.thumbnail ? "sm:w-2/3 font-sans" : "font-sans"}>
                                 <h3 className="font-black text-white uppercase italic text-xl tracking-tighter">
                                     {proj.href ? (
                                         <a href={proj.href} target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-colors flex items-center gap-2">
@@ -50,8 +80,21 @@ const Projects = () => {
                                     )}
                                 </h3>
                                 <p className="mt-2 text-base text-slate-400 leading-snug tracking-tight">{proj.desc}</p>
-                                <div className="mt-4 flex gap-2 font-mono">
-                                    {proj.tech.map(t => <span key={t} className="text-[10px] text-teal-500 font-bold border-b border-teal-500/30">{t}</span>)}
+
+                                {proj.demoVideo && (
+                                    <button
+                                        onClick={() => setActiveVideo(proj.demoVideo)}
+                                        className="mt-4 flex items-center gap-2 px-4 py-2 border border-teal-500/40 text-teal-400 text-xs font-bold uppercase tracking-[0.1em] hover:bg-teal-500/10 transition-all group/btn"
+                                    >
+                                        <svg className="w-4 h-4 fill-current group-hover/btn:scale-110 transition-transform" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z" />
+                                        </svg>
+                                        Watch Demo
+                                    </button>
+                                )}
+
+                                <div className="mt-4 flex gap-2 font-mono flex-wrap">
+                                    {proj.tech.map(t => <span key={t} className="text-[10px] text-teal-500 font-bold border-b border-teal-500/30 whitespace-nowrap">{t}</span>)}
                                 </div>
                             </div>
                         </div>
@@ -68,6 +111,12 @@ const Projects = () => {
                     View Full Project Archive
                 </a>
             </div>
+
+            <VideoModal
+                isOpen={!!activeVideo}
+                onClose={() => setActiveVideo(null)}
+                videoSrc={activeVideo}
+            />
         </section>
     );
 };
