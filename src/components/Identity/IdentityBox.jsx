@@ -47,9 +47,9 @@ const IdentityBox = ({ isGameActive, children }) => {
 
                 <div className="mt-6 space-y-4 font-mono">
                     {[
-                        { label: "Unity & Engine", skills: ["Unity 2D/3D", "C#", "UI Systems", "Gameplay Flow"] },
+                        { label: "Unity & Engine", skills: ["Unity 2D/3D", "C#", "UI Systems", "Gameplay Flow", "VFX"] },
                         { label: "Motion & Design", skills: ["After Effects", "Photoshop", "DaVinci Resolve", "2D/3D Animation"] },
-                        { label: "Technical Production", skills: ["Asset Management", "Modular Systems", "Performance Opt", "VFX"] },
+                        { label: "Technical Production", skills: ["Asset Management", "Modular Systems", "Performance Opt"] },
                         { label: "Leadership", skills: ["Team Lead", "Production Flow", "Project Management"] }
                     ].map((group) => (
 
